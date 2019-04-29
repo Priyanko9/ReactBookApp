@@ -1,0 +1,93 @@
+.App {
+  text-align: center;
+}
+
+.shelf{
+  display:flex;
+  justify-content: center;
+}
+.bookTemplate{
+  margin:25px;
+  padding: 5px;
+  display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    width: 150px;
+}
+.statelist{
+  background-color: green;
+  width: 2%;
+  height: 7% !important;
+  border-radius: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  position: absolute;
+}
+.indicator{
+    width: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 6px solid white;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.listState{
+display:none;
+}
+div.listState:hover{
+  display:block !important;
+}
+.listState ul{
+  list-style: none;
+  background: lightgray;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  margin-bottom: -16px !important;
+}
+.listState ul li{
+  float:left;
+}
+.listState .selectedState{
+  font-weight: bold;
+}
+.movetoSection{
+  display: none;
+}
+.title{
+  font-weight: bold;
+}
+.author{
+  color: gray;
+}
+.searchBox{
+  text-align: center;
+  margin-top: 25px;
+}
+.searchBox input{
+  height: 30px;
+  border-style: solid;
+  border-color: green;
+  outline: none;
+  padding: 5px;
+}
+.customSearch{
+  font-size: 40px;
+  color: green;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+@media screen and (max-width:700px){
+  
+  .shelf {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .statelist{
+    width:10%;
+  }
+}
