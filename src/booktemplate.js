@@ -45,12 +45,12 @@ class BookTemplate extends Component {
           <div className="indicator"></div>
           <div className="listState">
             <ul>
-              <li onClick={this.showAllStates}>Move To ></li>
+              <li onClick={this.showAllStates} className="mouseicon">Move To ></li>
               { this.props.booksToShow.shelf && <li className="selectedState">{this.props.booksToShow.shelf}</li>}
             </ul>
             <div className="movetoSection">
               <ul>
-                {statesToSelect && statesToSelect.map(state=><li key={state} 
+                {statesToSelect && statesToSelect.map(state=><li key={state} className="mouseicon"
                 onClick={(event)=>this.props.changeState(event.target.textContent,this.props.booksToShow)}>{state}</li>)}
               </ul>
           </div>
