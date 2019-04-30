@@ -17,14 +17,19 @@ class BookTemplate extends Component {
   // display the current state of the particular book
   displaylistState=(event)=>{
     let list=event.currentTarget.children;
-    list[1].style.display="flex";
-    list[1].style["flex-direction"]="column";
+    if(list[1].style.display=="none"){
+      list[1].style.display="flex";
+      list[1].style["flex-direction"]="column";
+    } else if(list[1].style.display=="flex"){
+      list[1].style.display="none";
+    }  
   }
   //show all the different shelf options for the move to section
   showAllStates=(event)=>{
     let list=event.currentTarget.parentElement.parentElement.children;
     list[1].style.display="block";
   }
+  
   render() {
     const statesToSelect=this.allState.filter((state)=>{
         return state!==this.props.booksToShow.shelf
@@ -37,10 +42,12 @@ class BookTemplate extends Component {
     }
     return (
       <div className="bookTemplate">
-        <div className="thumbnail">
+        {
+          this.props.booksToShow.imageLinks && this.props.booksToShow.imageLinks.smallThumbnail && <div className="thumbnail">
             <img src={this.props.booksToShow.imageLinks.smallThumbnail}></img>
             <span className="options"></span>
-        </div>
+          </div>
+        }
         <div className="statelist" onClick={this.displaylistState}>
           <div className="indicator"></div>
           <div className="listState">
