@@ -49,8 +49,10 @@ class Search extends Component {
                   }
               });
           })
-          } else if (response && response.error=="empty query"){
-            this.emptyResult=true;
+          } else if (response.error){
+            if(response.error=="empty query"){
+              this.emptyResult=true;
+            }
             this.setState((state)=>({
               books:[]
             }));

@@ -2,6 +2,7 @@ import { Route, Switch } from 'react-router-dom'
 import Search from './search';
 import App from './App.js';
 import React, { Component } from 'react';
+import RouteNotExistComponent from './RouteNotExistComponent';
 
 
 export default class Routes extends Component{
@@ -16,6 +17,7 @@ export default class Routes extends Component{
                     <Route path="/search" 
                         render={(props)=><Search {...props}  /> }
                     />
+                    <Route path="*" component={RouteNotExistComponent}/>
                 </Switch>
             </div> 
         )
