@@ -1,6 +1,8 @@
 # ReactBookApp
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This is basically a bookmark application where you can change the state of the books.Here you can categorize the books among wantToRead,read and currentlyReading view.Also one can search for a particular view in the search page and the change the state of the book so that it is reflected in the main page in that particular shelf.
+
 ### `Install`
 
 Install all the required node modules using npm install
