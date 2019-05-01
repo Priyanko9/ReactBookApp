@@ -1,13 +1,9 @@
 # ReactBookApp
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### `Install`
 
-In the project directory, you can run:
-
-### `npm install`
-
-Install all the required node modules
+Install all the required node modules using npm install
 
 ### `npm start`
 
@@ -25,5 +21,11 @@ You will also see any lint errors in the console.
 3.Search-This components is used for searching for a particular book and displaying the list of books accordingly.
 
 4.BookTemplate-This component holds the information of a particular book along with status and all the available options.
+
+5.RouteNotExistComponent-This component gets loaded when a route does not exist
+
+### API calls
+
+BooksAPI.js contains all the api calls
 
 
