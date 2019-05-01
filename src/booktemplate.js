@@ -5,22 +5,18 @@ class BookTemplate extends Component {
   allState=[
     "read","wantToRead","currentlyReading","none"
   ];
-  constructor(props){
-    super(props);
-  }
+  
   // change the state of the book and call the callback with the book
   changeState=(event)=>{
-    const state=event.target.textContent;
-    this.props.booksToShow.shelf=state;
     this.props.changeState(this.props.booksToShow);
   }
   // display the current state of the particular book
   displaylistState=(event)=>{
     let list=event.currentTarget.children;
-    if(list[1].style.display=="none"){
+    if(list[1].style.display==="none"||list[1].style.display===""){
       list[1].style.display="flex";
       list[1].style["flex-direction"]="column";
-    } else if(list[1].style.display=="flex"){
+    } else if(list[1].style.display==="flex"){
       list[1].style.display="none";
     }  
   }
@@ -44,7 +40,7 @@ class BookTemplate extends Component {
       <div className="bookTemplate">
         {
           this.props.booksToShow.imageLinks && this.props.booksToShow.imageLinks.smallThumbnail && <div className="thumbnail">
-            <img src={this.props.booksToShow.imageLinks.smallThumbnail}></img>
+            <img src={this.props.booksToShow.imageLinks.smallThumbnail} alt={this.props.booksToShow.title}></img>
             <span className="options"></span>
           </div>
         }

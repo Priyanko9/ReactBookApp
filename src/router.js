@@ -1,16 +1,12 @@
 import { Route, Switch } from 'react-router-dom'
-import Search from './search';
+import Search from './Search';
 import App from './App.js';
-import React, { Component } from 'react';
+import React from 'react';
 import RouteNotExistComponent from './RouteNotExistComponent';
 
-
-export default class Routes extends Component{
-    constructor(props){
-        super(props);
-    }
-    render(){
-        return (
+const Routes = () => {
+    
+    return (
             <div>
                 <Switch>
                     <Route exact path="/" component={App} />
@@ -21,5 +17,6 @@ export default class Routes extends Component{
                 </Switch>
             </div> 
         )
-    }
 }
+
+export default Routes;

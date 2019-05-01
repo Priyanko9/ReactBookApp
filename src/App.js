@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Main from './main.js';
+import Main from './Main.js';
 import {getAll,update} from './BooksAPI.js';
 import {Link } from 'react-router-dom';
 
@@ -8,9 +8,7 @@ class App extends Component {
   state={
     books:[]
   };
-  constructor(props){
-      super(props);
-  }
+  
   //call the update api with the changed state of the book
   changeState=(shelf,book)=>{
     update(book,shelf).then((response)=>{
@@ -26,9 +24,7 @@ class App extends Component {
   }
   //Get all the books
   componentDidMount(){
-    let allBooks;
     getAll().then((response)=>{
-      localStorage.setItem("allbooks",response);
       this.setState((state)=>({
         books:response
       }));
@@ -39,7 +35,6 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-        
         <Link to={{
             pathname: '/search',
             state: {

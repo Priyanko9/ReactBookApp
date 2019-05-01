@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import BookTemplate from './booktemplate.js'
-import {search,update,get} from './BooksAPI.js';
 import {Link } from 'react-router-dom';
+import BookTemplate from './Booktemplate.js'
+import {search,update,get} from './BooksAPI.js';
+
 
 class Search extends Component {
 
   state={
-    books:[]
+    searchedBooks:[]
   }
   //call the update api method
   changeState=(shelf,book)=>{
     update(book,shelf).then((response)=>{
       this.setState((state)=>({
-        books:state.books.map(b=>{
+        searchedBooks:state.searchedBooks.map(b=>{
           if(book.id===b.id){
             b.shelf=shelf;
           }
@@ -26,7 +27,7 @@ class Search extends Component {
     const value=event.target.value;
     if(!value){
       this.setState((state)=>({
-        books:[]
+        searchedBooks:[]
       }));
     } else {
       if(this.timeout){
@@ -34,7 +35,7 @@ class Search extends Component {
       }
       this.timeout=setTimeout(()=>{
         this.setState((state)=>({
-          books:[]
+          searchedBooks:[]
         }));
         search(value).then((response)=>{
           if(response && !response.error){
@@ -42,24 +43,24 @@ class Search extends Component {
               get(book.id).then(res=>{
                   book.shelf=res.shelf;
                   this.emptyResult=false;
-                  if(this.state.books.findIndex(b=>book.id===b.id) < 0){
+                  if(this.state.searchedBooks.findIndex(b=>book.id===b.id) < 0){
                     this.setState((state)=>({
-                        books:state.books.concat(book)
+                      searchedBooks:state.searchedBooks.concat(book)
                     }));
                   }
               });
           })
           } else if (response.error){
-            if(response.error=="empty query"){
+            if(response.error==="empty query"){
               this.emptyResult=true;
             }
             this.setState((state)=>({
-              books:[]
+              searchedBooks:[]
             }));
           } else {
             this.emptyResult=false;
             this.setState((state)=>({
-              books:[]
+              searchedBooks:[]
             }));
           }
         });
@@ -79,7 +80,7 @@ class Search extends Component {
           }}>Home Page</Link>
         {this.emptyResult && <div className="emptyResults">There are no result for this query</div>}
           <div className="shelf">
-          { this.state.books && this.state.books.length > 0  && this.state.books.map(book => <BookTemplate key={book.id}
+          { this.state.searchedBooks && this.state.searchedBooks.length > 0  && this.state.searchedBooks.map(book => <BookTemplate key={book.id}
                 changeState={(shelf,book)=>this.changeState(shelf,book)} booksToShow={book}/>) }
           </div>
       </div>

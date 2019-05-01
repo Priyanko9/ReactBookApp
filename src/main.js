@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import BookTemplate from './booktemplate.js'
+import BookTemplate from './Booktemplate.js'
 
 class Main extends Component {
 
-  constructor(props){
-    super(props);
-  }
-  
   render() {
       //separate books acc. to shelves
       const currentlyReadingBooks=this.props.booklist.filter((book)=>{
